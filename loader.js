@@ -454,6 +454,9 @@ WEBARSDK.SetVideoStartedCallback(() => {
     removeOriginalVideoElement();
     setupDemoInteractions();
   }, CAMERA_CONFIG.TIMING.VIDEO_TRANSITION_DELAY);
+
+  // Init Header Timer
+  startTimer();
 });
 
 // ============================================
