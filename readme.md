@@ -1,4 +1,4 @@
-# 🚀 Advanced Surface Tracking Integration
+# 🚀 Advanced Surface Tracking Integration 
 
 > **A comprehensive advanced surface tracking implementation showcasing sophisticated SDK features, minimal UI approach, and extensive customization capabilities built with the Blippar WebAR SDK.**
 
