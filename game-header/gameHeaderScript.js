@@ -1,7 +1,7 @@
+var intervalId = null
 function startTimer() {
   var TOTAL_TIME_SECONDS = 60;
   var secondsLeft = TOTAL_TIME_SECONDS;
-  var intervalId = null;
 
   var headerEl = document.getElementById('game-header');
   var timerValueEl = document.getElementById('timer-value');
@@ -66,6 +66,7 @@ function startTimer() {
   window.addEventListener('beforeunload', cleanup);
 }
 function stopTimer() {
-  alert("Timer Stopped");
+  clearInterval(intervalId);
+  intervalId = null;
 }
 

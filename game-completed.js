@@ -2,7 +2,7 @@ function showGameCompletePopup(caughtCharacter = false) {
     const popup = document.getElementById("game-complete-popup");
     if (!popup) {
         console.warn("Game complete popup element not found.");
-    }   
+    }
 
     const contentDiv = popup.querySelector(".content");
 
@@ -13,4 +13,12 @@ function showGameCompletePopup(caughtCharacter = false) {
     }
     popup.style.display = "flex";
 }
-showGameCompletePopup()
+
+
+document.addEventListener('timerComplete', function (event) {
+    // Handle the timer completion here
+    console.log('Timer has completed!');
+    // Add your logic here for what should happen when timer completes
+
+    showGameCompletePopup()
+});
