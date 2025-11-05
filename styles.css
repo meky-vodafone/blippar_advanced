@@ -15,20 +15,19 @@
 /* ============================================ */
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
-    sans-serif;
-  background: linear-gradient(135deg, #fca711 0%, #f18f01 100%);
-  color: white;
-  overflow: hidden;
-  position: relative;
-  height: 100vh;
-  width: 100vw;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    background: linear-gradient(135deg, #fca711 0%, #f18f01 100%);
+    color: white;
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
 }
 
 /* ============================================ */
@@ -36,26 +35,26 @@ body {
 /* ============================================ */
 
 .videoholder {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #000;
-  z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    z-index: 1;
 }
 
 #video {
-  position: absolute;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: cover;
-  background: #000;
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    background: #000;
 }
 
 /* ============================================ */
@@ -63,21 +62,21 @@ body {
 /* ============================================ */
 
 #loadingscreen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(135deg, #fca711 0%, #f18f01 100%);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 18px;
-  font-weight: 500;
-  text-align: center;
-  padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #fca711 0%, #f18f01 100%);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    padding: 20px;
 }
 
 /* ============================================ */
@@ -85,36 +84,35 @@ body {
 /* ============================================ */
 
 .permholder {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(135deg, #fca711 0%, #f18f01 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
-    sans-serif;
-  z-index: 10000;
-  padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #fca711 0%, #f18f01 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    z-index: 10000;
+    padding: 20px;
 }
 
 .permholder > div:first-child {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: #2c3e50;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #2c3e50;
 }
 
 .permholder > div:nth-child(2) {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 25px;
-  font-weight: 400;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+    font-weight: 400;
 }
 
 /* ============================================ */
@@ -122,30 +120,30 @@ body {
 /* ============================================ */
 
 .permsbutton {
-  background: rgba(255, 255, 255, 0.95);
-  color: #f18f01;
-  border: 2px solid white;
-  border-radius: 12px;
-  padding: 16px 32px;
-  font-size: 18px;
-  font-weight: 600;
-  cursor: pointer;
-  margin-top: 25px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  letter-spacing: -0.3px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #f18f01;
+    border: 2px solid white;
+    border-radius: 12px;
+    padding: 16px 32px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    letter-spacing: -0.3px;
 }
 
 .permsbutton:hover {
-  background: white;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
 }
 
 .permsbutton:active {
-  transform: translateY(0);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 /* ============================================ */
@@ -153,11 +151,11 @@ body {
 /* ============================================ */
 
 .hide {
-  display: none !important;
+    display: none !important;
 }
 
 .showflex {
-  display: flex !important;
+    display: flex !important;
 }
 
 /* ============================================ */
@@ -165,23 +163,23 @@ body {
 /* ============================================ */
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -40%);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-  }
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
 }
 
 @keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
 
 /* ============================================ */
@@ -189,40 +187,40 @@ body {
 /* ============================================ */
 
 @media (max-width: 480px) {
-  .permholder {
-    width: 95%;
-    padding: 25px 20px;
-    min-height: 180px;
-  }
-
-  .permholder > div:first-child {
-    font-size: 18px;
-  }
-
-  .permholder > div:nth-child(2) {
-    font-size: 13px;
-  }
-
-  .permsbutton {
-    font-size: 15px;
-    padding: 12px 18px;
-  }
-
-  .fullscreenflexcol {
-    font-size: 16px;
-    padding: 20px;
-  }
+    .permholder {
+        width: 95%;
+        padding: 25px 20px;
+        min-height: 180px;
+    }
+    
+    .permholder > div:first-child {
+        font-size: 18px;
+    }
+    
+    .permholder > div:nth-child(2) {
+        font-size: 13px;
+    }
+    
+    .permsbutton {
+        font-size: 15px;
+        padding: 12px 18px;
+    }
+    
+    .fullscreenflexcol {
+        font-size: 16px;
+        padding: 20px;
+    }
 }
 
 @media (max-height: 600px) {
-  .permholder {
-    min-height: 150px;
-    padding: 20px;
-  }
-
-  .permholder > div:nth-child(2) {
-    margin-bottom: 20px;
-  }
+    .permholder {
+        min-height: 150px;
+        padding: 20px;
+    }
+    
+    .permholder > div:nth-child(2) {
+        margin-bottom: 20px;
+    }
 }
 
 /* ============================================ */
@@ -230,9 +228,9 @@ body {
 /* ============================================ */
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .permholder {
-    border-width: 0.5px;
-  }
+    .permholder {
+        border-width: 0.5px;
+    }
 }
 
 /* ============================================ */
@@ -240,27 +238,27 @@ body {
 /* ============================================ */
 
 @media (prefers-reduced-motion: reduce) {
-  .permholder {
-    animation: none;
-  }
-
-  .permsbutton {
-    transition: none;
-  }
-
-  .permsbutton:hover {
-    transform: none;
-  }
-
-  .permsbutton::before {
-    display: none;
-  }
+    .permholder {
+        animation: none;
+    }
+    
+    .permsbutton {
+        transition: none;
+    }
+    
+    .permsbutton:hover {
+        transform: none;
+    }
+    
+    .permsbutton::before {
+        display: none;
+    }
 }
 
 /* Focus styles for accessibility */
 .permsbutton:focus {
-  outline: 2px solid #667eea;
-  outline-offset: 2px;
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
 }
 
 /* ============================================ */
@@ -268,20 +266,23 @@ body {
 /* ============================================ */
 
 @media (prefers-color-scheme: dark) {
-  .permholder {
-    background: rgba(30, 30, 30, 0.95);
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-
-  .permholder > div:first-child {
-    color: #fff;
-  }
-
-  .permholder > div:nth-child(2) {
-    color: #ccc;
-  }
+    .permholder {
+        background: rgba(30, 30, 30, 0.95);
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .permholder > div:first-child {
+        color: #fff;
+    }
+    
+    .permholder > div:nth-child(2) {
+        color: #ccc;
+    }
 }
+
+
+
 
 #logContainer {
   position: fixed;
@@ -299,4 +300,3 @@ body {
   z-index: 99999;
   white-space: pre-wrap;
 }
-

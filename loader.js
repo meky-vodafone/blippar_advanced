@@ -2,10 +2,10 @@
  * ============================================
  * WEBARSDK CAMERA & PERMISSION HANDLER
  * ============================================
- *
+ * 
  * Handles camera stream setup and device permissions for the WebAR SDK
  * This module manages the complex permission flow required for mobile AR
- *
+ * 
  * WORKFLOW:
  * 1. Wait for A-Frame scene to load
  * 2. Request camera permissions (iOS requires user interaction)
@@ -13,7 +13,7 @@
  * 4. Request motion sensor permissions (iOS only)
  * 5. Initialize WebAR SDK with camera stream
  * 6. Hide loading screen when video starts
- *
+ * 
  * @author Blippar Development Team
  * @version 2.0.0
  */
@@ -27,21 +27,19 @@ console.log("📹 Loading WebAR camera & permission handler...");
 const CAMERA_CONFIG = {
   // Camera constraints for optimal AR performance
   VIDEO_CONSTRAINTS: {
-    facingMode: "environment", // Use rear camera
-    advanced: [
-      {
-        focusMode: "manual",
-        focusDistance: 0,
-      },
-    ],
+    facingMode: "environment",     // Use rear camera
+    advanced: [{
+      focusMode: "manual",
+      focusDistance: 0
+    }]
   },
 
   // Timing settings
   TIMING: {
-    GYRO_CHECK_DELAY: 500, // ms to wait before checking gyro
-    SDK_RETRY_INTERVAL: 250, // ms between SDK initialization retries
-    VIDEO_TRANSITION_DELAY: 800, // ms before hiding loading screen
-  },
+    GYRO_CHECK_DELAY: 500,        // ms to wait before checking gyro
+    SDK_RETRY_INTERVAL: 250,      // ms between SDK initialization retries
+    VIDEO_TRANSITION_DELAY: 800   // ms before hiding loading screen
+  }
 };
 
 // ============================================
@@ -83,9 +81,7 @@ function initialize() {
     aframeScene.addEventListener("loaded", onSceneLoaded);
     console.log("📱 Waiting for A-Frame scene to load...");
   } else {
-    console.warn(
-      "⚠️ A-Frame scene element not found, starting camera immediately"
-    );
+    console.warn("⚠️ A-Frame scene element not found, starting camera immediately");
     onSceneLoaded();
   }
 }
@@ -125,12 +121,9 @@ function showCameraPermissionDialog() {
     cameraPermissionDialog.classList.add("showflex");
 
     // Add click handler for permission button
-    const permissionButton =
-      cameraPermissionDialog.querySelector(".permsbutton");
+    const permissionButton = cameraPermissionDialog.querySelector(".permsbutton");
     if (permissionButton) {
-      permissionButton.addEventListener("click", onCameraPermissionGranted, {
-        once: true,
-      });
+      permissionButton.addEventListener("click", onCameraPermissionGranted, { once: true });
     }
   }
 }
@@ -168,19 +161,14 @@ async function startCameraStream() {
   try {
     // Get available video input devices
     const devices = await navigator.mediaDevices.enumerateDevices();
-    const videoDevices = devices.filter(
-      (device) => device.kind === "videoinput"
-    );
+    const videoDevices = devices.filter(device => device.kind === "videoinput");
 
     if (videoDevices.length > 0) {
       console.log(`📹 Found ${videoDevices.length} video device(s)`);
 
       // Use the last camera (usually rear camera on mobile)
       const selectedDevice = videoDevices[videoDevices.length - 1];
-      console.log(
-        "📱 Selected camera:",
-        selectedDevice.label || "Unknown camera"
-      );
+      console.log("📱 Selected camera:", selectedDevice.label || "Unknown camera");
 
       // Add device ID to constraints if available
       if (selectedDevice.deviceId) {
@@ -190,7 +178,7 @@ async function startCameraStream() {
 
     // Request camera stream
     const stream = await navigator.mediaDevices.getUserMedia({
-      video: CAMERA_CONFIG.VIDEO_CONSTRAINTS,
+      video: CAMERA_CONFIG.VIDEO_CONSTRAINTS
     });
 
     console.log("✅ Camera stream started successfully");
@@ -202,10 +190,8 @@ async function startCameraStream() {
     }
 
     // Wait a bit then check motion sensor permissions
-    setTimeout(
-      initializeMotionPermissions,
-      CAMERA_CONFIG.TIMING.GYRO_CHECK_DELAY
-    );
+    setTimeout(initializeMotionPermissions, CAMERA_CONFIG.TIMING.GYRO_CHECK_DELAY);
+
   } catch (error) {
     console.error("❌ Failed to start camera:", error);
     handleCameraError(error);
@@ -219,7 +205,7 @@ function handleCameraError(error) {
   console.error("Camera error details:", error);
 
   // You could implement custom error handling here
-  // For now, we'll just log the error
+  // For now, we"ll just log the error
   if (error.name === "NotAllowedError") {
     console.error("Camera permission denied");
   } else if (error.name === "NotFoundError") {
@@ -239,9 +225,7 @@ function handleCameraError(error) {
 function initializeGyroPermissions() {
   if (isIOS) {
     // On iOS, listen for device orientation events
-    window.addEventListener("deviceorientation", onGyroPermissionReceived, {
-      once: true,
-    });
+    window.addEventListener("deviceorientation", onGyroPermissionReceived, { once: true });
   } else {
     // On other platforms, listen for device motion events
     window.addEventListener("devicemotion", onMotionReceived);
@@ -275,13 +259,6 @@ function initializeMotionPermissions() {
  * Show motion permission dialog for iOS users
  */
 function showMotionPermissionDialog() {
-  const gyroPermissionAlreadyGranted =
-    localStorage.getItem("gyroPermissionGranted") == "alreadyGranted";
-
-  if (gyroPermissionAlreadyGranted) {
-    return;
-  }
-
   if (gyroPermissionDialog) {
     gyroPermissionDialog.classList.remove("hide");
     gyroPermissionDialog.classList.add("showflex");
@@ -289,9 +266,7 @@ function showMotionPermissionDialog() {
     // Add click handler for permission button
     const permissionButton = gyroPermissionDialog.querySelector(".permsbutton");
     if (permissionButton) {
-      permissionButton.addEventListener("click", onMotionPermissionRequested, {
-        once: true,
-      });
+      permissionButton.addEventListener("click", onMotionPermissionRequested, { once: true });
     }
   }
 }
@@ -307,10 +282,6 @@ async function onMotionPermissionRequested() {
     if (permission === "granted") {
       console.log("✅ Motion permission granted");
       hasGyroPermission = true;
-
-      localStorage.setItem("gyroPermissionGranted", "alreadyGranted");
-      location.reload(); // Reload to ensure motion data is captured properly
-
       hideMotionPermissionDialog();
       initializeSDK();
     } else {
@@ -354,11 +325,7 @@ function onGyroPermissionReceived() {
  * Handle device motion received (non-iOS)
  */
 function onMotionReceived(event) {
-  if (
-    event.rotationRate?.alpha ||
-    event.rotationRate?.beta ||
-    event.rotationRate?.gamma
-  ) {
+  if (event.rotationRate?.alpha || event.rotationRate?.beta || event.rotationRate?.gamma) {
     console.log("🧭 Motion sensor data received");
     hasGyroPermission = true;
     window.removeEventListener("devicemotion", onMotionReceived);
@@ -395,7 +362,7 @@ function initializeSDK() {
 }
 
 /**
- * Retry SDK initialization until it's ready
+ * Retry SDK initialization until it"s ready
  */
 function retrySDKInitialization() {
   const retryInterval = setInterval(() => {
@@ -452,11 +419,7 @@ WEBARSDK.SetVideoStartedCallback(() => {
   setTimeout(() => {
     hideLoadingScreenWithTransition();
     removeOriginalVideoElement();
-    setupDemoInteractions();
   }, CAMERA_CONFIG.TIMING.VIDEO_TRANSITION_DELAY);
-
-  // Init Header Timer
-  startTimer();
 });
 
 // ============================================
@@ -470,6 +433,8 @@ function hideLoadingScreenWithTransition() {
   if (loadingScreen) {
     console.log("🎭 Hiding loading screen with fade transition");
 
+    startResetButtonWorkaround();
+    
     // Add fade out effect
     loadingScreen.style.transition = "opacity 0.5s ease-out";
     loadingScreen.style.opacity = "0";
@@ -495,37 +460,35 @@ function removeOriginalVideoElement() {
 /**
  * Setup demo interactions for the AR objects
  */
-function setupDemoInteractions() {
-  // Add click interaction to the demo sphere
-  const sphereElement = document.getElementById("spheremod");
-  if (sphereElement) {
-    sphereElement.addEventListener("click", toggleSphereColor);
-    console.log(
-      "🎮 Demo interactions enabled - click the red sphere to change its color"
-    );
-  }
-}
+// function setupDemoInteractions() {
+//   // Add click interaction to the demo sphere
+//   const sphereElement = document.getElementById("spheremod");
+//   if (sphereElement) {
+//     sphereElement.addEventListener("click", toggleSphereColor);
+//     console.log("🎮 Demo interactions enabled - click the red sphere to change its color");
+//   }
+// }
 
 // ============================================
 // DEMO INTERACTION HANDLERS
 // ============================================
 
-let currentSphereColor = "#EF2D5E"; // Initial red color
+// let currentSphereColor = "#EF2D5E"; // Initial red color
 
-/**
- * Toggle sphere color for demo purposes
- */
-function toggleSphereColor() {
-  console.log("🎨 Sphere clicked - changing color");
+// /**
+//  * Toggle sphere color for demo purposes
+//  */
+// function toggleSphereColor() {
+//   console.log("🎨 Sphere clicked - changing color");
 
-  // Toggle between red and green
-  currentSphereColor = currentSphereColor === "#EF2D5E" ? "#00FF00" : "#EF2D5E";
+//   // Toggle between red and green
+//   currentSphereColor = currentSphereColor === "#EF2D5E" ? "#00FF00" : "#EF2D5E";
 
-  const sphereElement = document.getElementById("spheremod");
-  if (sphereElement) {
-    sphereElement.setAttribute("material", `color: ${currentSphereColor}`);
-  }
-}
+//   const sphereElement = document.getElementById("spheremod");
+//   if (sphereElement) {
+//     sphereElement.setAttribute("material", `color: ${currentSphereColor}`);
+//   }
+// }
 
 // ============================================
 // INITIALIZATION
