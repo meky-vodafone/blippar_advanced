@@ -7,10 +7,10 @@ function showGameCompletePopup(caughtCharacter = false) {
 
     const contentDiv = popup.querySelector(".content");
     const gameCompeltedBtn = document.getElementById("game-completed-button");
-    let redirectionUrl = `https://vf.eg/Ram25?caughtCharachter=false&time=null`;
+    let redirectionUrl = `https://vf.eg/p?id=Ram25&caughtCharachter=false&time=null`;
 
     if (caughtCharacter) {
-        redirectionUrl = `https://vf.eg/Ram25?caughtCharachter=true&time=${TOTAL_TIME_SECONDS - secondsLeft}`;
+        redirectionUrl = `https://vf.eg/p?id=Ram25&caughtCharachter=true&time=${TOTAL_TIME_SECONDS - secondsLeft}`;
         contentDiv.innerHTML += "Congratulations!<br> You caught the character!";
         gameCompeltedBtn.innerText = "Claim Your Reward!";
     } else {
