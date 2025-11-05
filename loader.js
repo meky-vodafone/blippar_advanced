@@ -256,12 +256,23 @@ function initializeMotionPermissions() {
 
   if (typeof DeviceMotionEvent?.requestPermission === "function") {
     // iOS 13+ requires explicit permission
+    const alreadyGranted =
+      localStorage.getItem("gyroPermissionGranted") === "alreadyGranted";
+
+    if (alreadyGranted) {
+      console.log("✅ Motion permission previously granted – proceeding");
+      hasGyroPermission = true;
+      hideMotionPermissionDialog();
+      initializeSDK();
+      return;
+    }
+
     console.log("📱 iOS 13+ detected - showing motion permission prompt");
     showMotionPermissionDialog();
   } else {
     // Check if we already have motion data
     if (hasGyroPermission) {
-      console.log("✅ Motion sensors already available");
+      console.log("Motion sensors already available");
       hideMotionPermissionDialog();
       initializeSDK();
     } else {
@@ -307,12 +318,13 @@ async function onMotionPermissionRequested() {
     if (permission === "granted") {
       console.log("✅ Motion permission granted");
       hasGyroPermission = true;
-
       localStorage.setItem("gyroPermissionGranted", "alreadyGranted");
-      location.reload(); // Reload to ensure motion data is captured properly
-
       hideMotionPermissionDialog();
-      initializeSDK();
+      // Proceed immediately without a full page reload (prevents flaky starts)
+      // Give the event loop a short moment to deliver initial motion events
+      setTimeout(() => {
+        initializeSDK();
+      }, 100);
     } else {
       console.warn("⚠️ Motion permission denied");
       hideMotionPermissionDialog();
