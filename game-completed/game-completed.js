@@ -1,20 +1,25 @@
 function showGameCompletePopup(caughtCharacter = false) {
+    const popup = document.getElementById("game-complete-popup");
+    if (!popup) {
+        console.warn("Game complete popup element not found.");
+    }
 
-    setTimeout(() => {
-        const popup = document.getElementById("game-complete-popup");
-        if (!popup) {
-            console.warn("Game complete popup element not found.");
-        }
 
-        const contentDiv = popup.querySelector(".content");
+    const contentDiv = popup.querySelector(".content");
+    const gameCompeltedBtn = document.getElementById("game-completed-button");
+    let redirectionUrl = `https://vf.eg/Ram25?caughtCharachter=false&time=null`;
 
-        if (caughtCharacter) {
-            contentDiv.innerHTML += "Congratulations! You caught the character!";
-        } else {
-            contentDiv.innerHTML += "Time's up! Better luck next time!";
-        }
-        popup.style.display = "flex";
-    }, 1000);
+    if (caughtCharacter) {
+        redirectionUrl = `https://vf.eg/Ram25?caughtCharachter=true&time=${TOTAL_TIME_SECONDS - secondsLeft}`;
+        contentDiv.innerHTML += "Congratulations!<br> You caught the character!";
+        gameCompeltedBtn.innerText = "Claim Your Reward!";
+    } else {
+        contentDiv.innerHTML += "Time's up! Better luck next time!";
+        gameCompeltedBtn.innerText = "Continue";
+    }
+    popup.style.display = "flex";
+
+    gameCompeltedBtn.href = redirectionUrl;
 
 }
 

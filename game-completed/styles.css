@@ -13,8 +13,10 @@
   justify-content: center;
   z-index: 10000;
   display: none;
-
-  a{
+  .content {
+    text-align: center;
+  }
+  a {
     background: #fff;
     color: #8f0606;
     border: 2px solid white;

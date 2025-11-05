@@ -1,7 +1,7 @@
-var intervalId = null
+var intervalId = null;
+var TOTAL_TIME_SECONDS = 60;
+var secondsLeft = TOTAL_TIME_SECONDS;
 function startTimer() {
-  var TOTAL_TIME_SECONDS = 60;
-  var secondsLeft = TOTAL_TIME_SECONDS;
 
   var headerEl = document.getElementById('game-header');
   var timerValueEl = document.getElementById('timer-value');
