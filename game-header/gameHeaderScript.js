@@ -65,4 +65,7 @@ function startTimer() {
   // Attempt cleanup on page unload
   window.addEventListener('beforeunload', cleanup);
 }
+function stopTimer() {
+  alert("Timer Stopped");
+}
 
