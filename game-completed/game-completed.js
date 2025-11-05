@@ -3,14 +3,14 @@ function showGameCompletePopup(caughtCharacter = false) {
     if (!popup) {
         console.warn("Game complete popup element not found.");
     }
-
+    const baseRedirectionUrl = "https://ar-webview.netlify.app/";
 
     const contentDiv = popup.querySelector(".content");
     const gameCompeltedBtn = document.getElementById("game-completed-button");
-    let redirectionUrl = `https://vf.eg/p?id=Ram25&caughtCharachter=false&time=null`;
+    let redirectionUrl = `${baseRedirectionUrl}?caughtCharachter=false&time=null`;
 
     if (caughtCharacter) {
-        redirectionUrl = `https://vf.eg/p?id=Ram25&caughtCharachter=true&time=${TOTAL_TIME_SECONDS - secondsLeft}`;
+        redirectionUrl = `${baseRedirectionUrl}?caughtCharachter=true&time=${TOTAL_TIME_SECONDS - secondsLeft}`;
         contentDiv.innerHTML += "Congratulations!<br> You caught the character!";
         gameCompeltedBtn.innerText = "Claim Your Reward!";
     } else {
