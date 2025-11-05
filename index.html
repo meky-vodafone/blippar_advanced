@@ -71,7 +71,7 @@
     <div id="aframe-container">
       <a-scene
         id="mainScene"
-        webar-scene="key: d21fd736-f348-40f7-8cb4-85b85457169a"
+        webar-scene="key: e611f68c-67ec-4837-8d3a-a4039ece2629"
         xr-mode-ui="enabled: false"
         device-orientation-permission-ui="enabled: false"
         renderer="antialias: true; colorManagement: true; physicallyCorrectLights: true; sortTransparentObjects: true; precision: high; logarithmicDepthBuffer: false;"
@@ -88,15 +88,23 @@
         <!-- ============================================ -->
         <!-- All AR content should be placed under webar-stage -->
         <a-assets timeout="60000">
-                <a-asset-item id="yougo_model" src="assets/models/yougo_1.glb"></a-asset-item>
-            </a-assets>
+          <a-asset-item
+            id="yougo_model"
+            src="assets/models/yougo_1.glb"
+          ></a-asset-item>
+        </a-assets>
         <a-entity webar-stage>
           <a-entity
             webar-ux-control="stageCursorUX: false; userGestureRotation: false; userGestureScale: false"
           >
-            <!-- Blue Cube
-                    <a-box position="-1 0.5 1" rotation="0 45 0" color="#4CC3D9" shadow="cast: true; receive: true">
-                    </a-box> -->
+            <!-- Blue Cube -->
+            <a-box
+              position="1 0.5 -4"
+              rotation="0 45 0"
+              color="#4CC3D9"
+              shadow="cast: true; receive: true"
+            >
+            </a-box>
 
             <a-entity
               class="clickable"
