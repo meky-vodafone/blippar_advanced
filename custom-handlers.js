@@ -30,8 +30,8 @@ const CONFIG = {
     // Splash screen settings
     SPLASH: {
         LOGO_URL: 'https://webar-static.blippar.com/common/blippar_logo.png',
-        APP_NAME: 'Vodafone',
-        SUBTITLE: 'Yougo Game',
+        APP_NAME: 'WebAR SDK',
+        SUBTITLE: 'Advanced Surface Tracking',
         FADE_DURATION: 500 // milliseconds
     },
     
@@ -121,7 +121,7 @@ function handleRealSDKProgress(progress) {
     
     updateProgressUI({
         percentage: percentage,
-        mainText: `Loading: ${Math.round(percentage)}%`,
+        mainText: `Loading SDK: ${Math.round(percentage)}%`,
         detailText: total > 0 ? `Components: ${current} of ${total}` : 'Loading components...',
         debugText: getLoadingStageText(percentage),
         rawData: {
@@ -221,9 +221,10 @@ function createSplashHTML() {
             <div class="custom-splash-progress-container">
                 <div class="custom-splash-progress-bar" id="splashProgressBar"></div>
             </div>
-            <div class="custom-splash-text" id="splashProgressText">Loading...</div>
-            <div class="custom-splash-details" id="splashProgressDetails">Please wait...</div>
-            
+            <div class="custom-splash-text" id="splashProgressText">Initializing WebAR...</div>
+            <div class="custom-splash-details" id="splashProgressDetails">Preparing SDK...</div>
+            <div class="custom-splash-debug" id="splashProgressDebug">Starting up...</div>
+            ${CONFIG.DEBUG.SHOW_RAW_DATA ? '<div class="custom-splash-raw-data" id="splashRawData">Waiting for progress data...</div>' : ''}
         </div>
     `;
 }
@@ -359,7 +360,7 @@ function startFallbackProgress() {
         // Update UI with simulated progress
         updateProgressUI({
             percentage: currentFallbackProgress,
-            mainText: `Loading: ${Math.round(currentFallbackProgress)}%`,
+            mainText: `Loading SDK: ${Math.round(currentFallbackProgress)}%`,
             detailText: getFallbackDetailText(currentFallbackProgress),
             debugText: getLoadingStageText(currentFallbackProgress),
             rawData: { simulated: true, percentage: currentFallbackProgress }
@@ -399,8 +400,8 @@ function getLoadingStageText(percentage) {
  */
 function getFallbackDetailText(percentage) {
     if (percentage < 25) return 'Fetching resources';
-    if (percentage < 50) return 'Setting up everything';
-    if (percentage < 75) return 'Configuring things for you';
+    if (percentage < 50) return 'Setting up tracking';
+    if (percentage < 75) return 'Configuring video input';
     if (percentage < 95) return 'Almost ready';
     if (percentage >= 100) return 'Ready - starting camera';
     return 'Ready to start';
@@ -517,7 +518,7 @@ function createCustomStyles() {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
             padding: 15px;
             box-sizing: border-box;
-            background: #610303;
+            background: linear-gradient(135deg, #fca711 0%, #f18f01 100%);
             position: absolute;
             top: 0;
             left: 0;
