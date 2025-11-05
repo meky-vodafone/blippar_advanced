@@ -39,7 +39,12 @@
 
     <!-- Custom Styling -->
     <link rel="stylesheet" type="text/css" href="styles.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="game-header/styles.css" media="all" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="game-header/styles.css"
+      media="all"
+    />
 
     <!-- Custom Progress & Error Handlers (MUST load before SDK) -->
     <script src="custom-handlers.js"></script>
@@ -219,9 +224,18 @@
 
     <!-- <div id="logContainer"></div> -->
 
+    <!-- ============================================ -->
+    <!-- Game Complete                -->
+    <!-- ============================================ -->
+    <div id="game-complete-popup" class="">
+      <div class="content"></div>
+      <a href="https://google.com" target="_self">Continue</a>
+    </div>
+
     <script src="game-header/gameHeaderScript.js"></script>
     <script src="loader.js"></script>
     <script src="onModelClick.js"></script>
+    <script src="game-completed.js"></script>
     <!-- <script src="console.override.js"></script> -->
   </body>
 </html>
