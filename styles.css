@@ -300,36 +300,3 @@ body {
   white-space: pre-wrap;
 }
 
-#game-complete-popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgb(75 18 18);
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
-  justify-content: center;
-  z-index: 10000;
-  display: none;
-
-  a{
-    background: #fff;
-    color: #8f0606;
-    border: 2px solid white;
-    border-radius: 12px;
-    padding: 16px 32px;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 25px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    letter-spacing: -0.3px;
-    text-decoration: none;
-  }
-}
