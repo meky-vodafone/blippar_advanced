@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Stop Timer
       stopTimer();
+      showGameCompletePopup(true);
     };
 
     // Handle both click and touchstart
