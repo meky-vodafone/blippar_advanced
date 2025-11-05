@@ -419,6 +419,8 @@ WEBARSDK.SetVideoStartedCallback(() => {
   setTimeout(() => {
     hideLoadingScreenWithTransition();
     removeOriginalVideoElement();
+    // Init Header Timer
+    startTimer();
   }, CAMERA_CONFIG.TIMING.VIDEO_TRANSITION_DELAY);
 });
 
@@ -496,5 +498,6 @@ function removeOriginalVideoElement() {
 
 // Start the initialization process when script loads
 initialize();
+
 
 console.log("✅ WebAR camera & permission handler loaded");
