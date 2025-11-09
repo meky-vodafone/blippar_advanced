@@ -1,16 +1,16 @@
-document.addEventListener('gameStarted', () => {
-    // alert('game started event received');
-    // resetModelPosition();
+// alert('game started event received');
+// resetModelPosition();
 
 
-    // Model Loaded Listener
-    const model = document.querySelector("#armodel");
-    model.addEventListener("model-loaded", () => {
-        console.log("Model loaded and ready for interaction.");
-
-        model.setAttribute("visible", true);
-    })
-});
+// Model Loaded Listener
+const model = document.querySelector("#armodel");
+model.addEventListener("model-loaded", () => {
+    console.log("Model loaded and ready for interaction.");
+    document.addEventListener('gameStarted', () => {
+        showModelHandler();
+        resetModelPositionAfterRandomSeconds();
+    });
+})
 
 
 function showModelHandler() {
@@ -20,6 +20,7 @@ function showModelHandler() {
     const model = document.querySelector("#armodel");
     setTimeout(() => {
         if (model) {
+            alert("Showing Model Now");
             model.setAttribute("visible", true);
         }
     }, randomSeconds * 1000);
@@ -30,6 +31,7 @@ function resetModelPositionAfterRandomSeconds() {
     const maxSeconds = TOTAL_TIME_SECONDS;
     const randomSeconds = Math.floor(Math.random() * (maxSeconds - minSeconds + 1)) + minSeconds;
     setTimeout(() => {
+        alert("resetting model position now");
         resetModelPosition();
     }, randomSeconds * 1000)
 }
