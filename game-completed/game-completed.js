@@ -19,7 +19,11 @@ function showGameCompletePopup(caughtCharacter = false) {
     }
     popup.style.display = "flex";
 
-    gameCompeltedBtn.href = redirectionUrl;
+    const timeTakenInSeconds = TOTAL_TIME_SECONDS - secondsLeft;
+    
+    sendGameCompleteMessageToIframeParent(caughtCharacter, timeTakenInSeconds);
+
+    // gameCompeltedBtn.href = redirectionUrl;
 
 }
 
