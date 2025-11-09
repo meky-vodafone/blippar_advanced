@@ -20,7 +20,7 @@ function showModelHandler() {
     const model = document.querySelector("#armodel");
     setTimeout(() => {
         if (model) {
-            alert("Showing Model Now");
+            // alert("Showing Model Now");
             model.setAttribute("visible", true);
         }
     }, randomSeconds * 1000);
@@ -31,7 +31,7 @@ function resetModelPositionAfterRandomSeconds() {
     const maxSeconds = TOTAL_TIME_SECONDS;
     const randomSeconds = Math.floor(Math.random() * (maxSeconds - minSeconds + 1)) + minSeconds;
     setTimeout(() => {
-        alert("resetting model position now");
+        // alert("resetting model position now");
         resetModelPosition();
     }, randomSeconds * 1000)
 }

@@ -430,7 +430,7 @@ WEBARSDK.SetVideoStartedCallback(() => {
 WEBARSDK.SetARModelPlaceCallback(() => {
   // This code runs right after the user places the 3D model on the floor.
   console.log("3D model has been successfully placed on the surface!");
-  alert("Model Placed")
+  // alert("Model Placed")
   // You can start an animation, hide UI instructions, or trigger other events here.
 
   // Example: Start an animation on the A-Frame entity with id 'my-model'
