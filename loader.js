@@ -422,6 +422,24 @@ WEBARSDK.SetVideoStartedCallback(() => {
   }, CAMERA_CONFIG.TIMING.VIDEO_TRANSITION_DELAY);
 });
 
+
+// Called when the 3D model is placed
+WEBARSDK.SetARModelPlaceCallback(() => {
+  // This code runs right after the user places the 3D model on the floor.
+  console.log("3D model has been successfully placed on the surface!");
+  alert("Model Placed")
+  // You can start an animation, hide UI instructions, or trigger other events here.
+
+  // Example: Start an animation on the A-Frame entity with id 'my-model'
+  // document.getElementById('my-model').emit('start-animation');
+});
+
+
+
+
+
+
+
 // ============================================
 // UI TRANSITION HANDLERS
 // ============================================
@@ -434,7 +452,7 @@ function hideLoadingScreenWithTransition() {
     console.log("🎭 Hiding loading screen with fade transition");
 
     startResetButtonWorkaround();
-    
+
     // Add fade out effect
     loadingScreen.style.transition = "opacity 0.5s ease-out";
     loadingScreen.style.opacity = "0";
