@@ -14,8 +14,8 @@ model.addEventListener("model-loaded", () => {
 
 
 function showModelHandler() {
-    const minSeconds = 1;
-    const maxSeconds = 5;
+    const minSeconds = 3;
+    const maxSeconds = 10;
     const randomSeconds = Math.floor(Math.random() * (maxSeconds - minSeconds + 1)) + minSeconds;
     const model = document.querySelector("#armodel");
     setTimeout(() => {
