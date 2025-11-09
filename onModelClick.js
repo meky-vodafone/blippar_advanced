@@ -20,13 +20,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Stop Timer
       stopTimer();
-      showGameCompletePopup(true);
+      // showGameCompletePopup(true);
+      const timeTakenInSeconds = TOTAL_TIME_SECONDS - secondsLeft;
+      sendGameCompleteMessageToIframeParent(true, timeTakenInSeconds);
     };
 
     // Handle both click and touchstart
     model.addEventListener("click", handleInteraction);
     model.addEventListener("touchstart", handleInteraction);
 
+  });
+
+  document.addEventListener('timerComplete', function (event) {
+    // Handle the timer completion here
+    console.log('Timer has completed!');
+    model.setAttribute("visible", false);
+    sendGameCompleteMessageToIframeParent(false, 0);
   });
 });
 

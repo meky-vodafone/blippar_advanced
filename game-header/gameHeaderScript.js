@@ -70,3 +70,7 @@ function stopTimer() {
   intervalId = null;
 }
 
+document.addEventListener('gameStarted', () => {
+  alert('Start Timer after Event Received');
+  startTimer();
+});

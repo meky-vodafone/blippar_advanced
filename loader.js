@@ -415,10 +415,13 @@ WEBARSDK.SetVideoStartedCallback(() => {
     stopFallbackProgress();
   }
 
+
+
   // Hide loading screen with smooth transition
   setTimeout(() => {
     hideLoadingScreenWithTransition();
     removeOriginalVideoElement();
+    emitGameStartedEvent();
   }, CAMERA_CONFIG.TIMING.VIDEO_TRANSITION_DELAY);
 });
 
@@ -435,6 +438,10 @@ WEBARSDK.SetARModelPlaceCallback(() => {
 });
 
 
+function emitGameStartedEvent() {
+  var event = new CustomEvent('gameStarted', { bubbles: true });
+  document.dispatchEvent(event);
+}
 
 
 
@@ -450,8 +457,6 @@ WEBARSDK.SetARModelPlaceCallback(() => {
 function hideLoadingScreenWithTransition() {
   if (loadingScreen) {
     console.log("🎭 Hiding loading screen with fade transition");
-
-    startResetButtonWorkaround();
 
     // Add fade out effect
     loadingScreen.style.transition = "opacity 0.5s ease-out";

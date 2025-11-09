@@ -20,3 +20,9 @@ function startResetButtonWorkaround() {
     })
 
 }
+
+
+document.addEventListener('gameStarted', () => {
+    alert('game started event received');
+    startResetButtonWorkaround();
+});
