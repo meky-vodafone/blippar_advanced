@@ -15,8 +15,8 @@ function resetModelPosition() {
 }
 
 // IOS Fix 
-const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-if (isIOS) {
+const isIOSDevice = /iphone|ipad|ipod/i.test(navigator.userAgent);
+if (isIOSDevice) {
     document.addEventListener('gameStarted', () => {
         setTimeout(() => {
             resetModelPosition();
