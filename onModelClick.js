@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener('timerComplete', function (event) {
     // Handle the timer completion here
     console.log('Timer has completed!');
+    alert('Timer has completed!');
     model.setAttribute("visible", false);
     sendGameCompleteMessageToIframeParent(false, 0);
   });
