@@ -1,123 +1,123 @@
 const AR_GAME_LEVELS_MAP = {
   le4Z8R8Gw2ek: {
     levelNo: 1,
-    modelName: "menofeya.glb",
+    modelName: "Giza.glb",
   },
   xNJZ8ftGzgk8: {
     levelNo: 2,
-    modelName: "yougo_1.glb",
+    modelName: "Salum.glb",
   },
   gSlLammkjZFB: {
     levelNo: 3,
-    modelName: "menofeya.glb",
+    modelName: "AirPort.glb",
   },
   KLGmlcggV76D: {
     levelNo: 4,
-    modelName: "menofeya.glb",
+    modelName: "Alamein.glb",
   },
   OQNaAL2ht4zy: {
     levelNo: 5,
-    modelName: "menofeya.glb",
+    modelName: "Dahab.glb",
   },
   ePGAGriUymyB: {
     levelNo: 6,
-    modelName: "menofeya.glb",
+    modelName: "CairoStadium.glb",
   },
   "7vjOEWbXr0H5": {
     levelNo: 7,
-    modelName: "menofeya.glb",
+    modelName: "Sharm.glb",
   },
   His2QHzzBmRy: {
     levelNo: 8,
-    modelName: "menofeya.glb",
+    modelName: "Luxor.glb",
   },
   RPuhhMrFr79y: {
     levelNo: 9,
-    modelName: "menofeya.glb",
+    modelName: "Alexanderia.glb",
   },
   eLNO5pX7iarb: {
     levelNo: 10,
-    modelName: "menofeya.glb",
+    modelName: "Damietta.glb",
   },
   YrMfV7ficaHl: {
     levelNo: 11,
-    modelName: "menofeya.glb",
+    modelName: "Asyut.glb",
   },
   cYsIgdPvQSjc: {
     levelNo: 12,
-    modelName: "menofeya.glb",
+    modelName: "Minya.glb",
   },
   VeH9OqeJeBsa: {
     levelNo: 13,
-    modelName: "menofeya.glb",
+    modelName: "Aswan.glb",
   },
   y4JEQYBJCI24: {
     levelNo: 14,
-    modelName: "menofeya.glb",
+    modelName: "PortSaid.glb",
   },
   ud8oe5vxnQwt: {
     levelNo: 15,
-    modelName: "menofeya.glb",
+    modelName: "RasSedr.glb",
   },
   bJvRqXrnT69h: {
     levelNo: 16,
-    modelName: "menofeya.glb",
+    modelName: "Mansoura.glb",
   },
   CeFA0G26FOBp: {
     levelNo: 17,
-    modelName: "menofeya.glb",
+    modelName: "Menofeya.glb",
   },
   vIH9lJC8pyF9: {
     levelNo: 18,
-    modelName: "menofeya.glb",
+    modelName: "RasElbar.glb",
   },
   NsTISIdEKAea: {
     levelNo: 19,
-    modelName: "menofeya.glb",
+    modelName: "AinSokhna.glb",
   },
   "2YzFWMISBDB8": {
     levelNo: 20,
-    modelName: "menofeya.glb",
+    modelName: "Sohag.glb",
   },
   "7TcKRgzJvaoj": {
     levelNo: 21,
-    modelName: "menofeya.glb",
+    modelName: "BeniSuef.glb",
   },
   FNvpxDoy0Akq: {
     levelNo: 22,
-    modelName: "menofeya.glb",
+    modelName: "NewCapital.glb",
   },
   "6vm6Ss9KpLts": {
     levelNo: 23,
-    modelName: "menofeya.glb",
+    modelName: "Tanta.glb",
   },
   Q8XvyIi4qu3B: {
     levelNo: 24,
-    modelName: "menofeya.glb",
+    modelName: "Fayum.glb",
   },
   GHezc14FZXLV: {
     levelNo: 25,
-    modelName: "menofeya.glb",
+    modelName: "KhanElkhalily.glb",
   },
   J2kUunLXwakT: {
     levelNo: 26,
-    modelName: "menofeya.glb",
+    modelName: "Hurghada.glb",
   },
   IH0RyPuHnnxg: {
     levelNo: 27,
-    modelName: "menofeya.glb",
+    modelName: "Mahalla.glb",
   },
   VTFfZO5EN5gU: {
     levelNo: 28,
-    modelName: "menofeya.glb",
+    modelName: "Zagazig.glb",
   },
   rJeRRQLsPuvx: {
     levelNo: 29,
-    modelName: "menofeya.glb",
+    modelName: "Nuwieba.glb",
   },
   "0068JChFC9BF": {
     levelNo: 30,
-    modelName: "menofeya.glb",
+    modelName: "Ismalia.glb",
   },
 };
 function getQueryParam(param) {
