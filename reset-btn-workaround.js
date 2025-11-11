@@ -5,6 +5,10 @@ function resetModelPosition() {
     return;
   }
   resetButton.click();
+
+  // Another Method
+  // WEBARSDK.PerformReset();
+
   // alert("Model position has been reset.");
   // resetButton.style.visibility = 'hidden';
   // setTimeout(() => {
