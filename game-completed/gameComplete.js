@@ -15,7 +15,7 @@ function sendGameCompleteMessageToIframeParent(
 
 function onGameComplete(caughtCharacter, timeTakenInSeconds) {
   //   sendGameCompleteMessageToIframeParent(caughtCharacter, timeTakenInSeconds);
-  const baseRedirectionUrl = "https://test1.vodafone.com.eg/portal/arGame";
+  const baseRedirectionUrl = "https://qa1.vodafone.com.eg/bf/youtubePromo/game-page";
   const finalUrl = `${baseRedirectionUrl}?caughtCharacter=${caughtCharacter},timeTakenInSeconds=${timeTakenInSeconds}`;
   try {
     window.location.replace(finalUrl);
