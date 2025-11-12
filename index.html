@@ -73,7 +73,7 @@
       render-scene-on-desktop="false"
       external-camera-stream="true"
       debug-mode="false"
-      hide-reset-button="true"
+      hide-reset-button="false"
     ></script>
   </head>
 
@@ -168,19 +168,27 @@
               shadow="cast: true; receive: true"
             >
             </a-box>
-
+            <a-plane
+              id="debugFloor"
+              color="#888"
+              rotation="-90 0 0"
+              width="500"
+              height="500"
+              opacity="1"
+              shadow="receive: true"
+            ></a-plane>
             <a-entity
               class="clickable"
               gltf-model="#yougo_model"
               animation-mixer="clip: *"
               id="armodel"
-              rotation="0 0 0"
-              position="3 0.5 -2"
+              rotation="0 -60 0"
+              position="3 0 -2"
               shadow="cast: false; receive: false"
               scale="2 2 2"
               draco-loader="decoderPath: https://www.gstatic.com/draco/v1/decoders/"
               webar-loadmonitor="elType: glb"
-              visible="false"
+              visible="true"
             >
             </a-entity>
           </a-entity>
@@ -254,7 +262,6 @@
     <script src="onModelClick.js"></script>
     <script src="game-exp.js"></script>
     <script src="levels/levels.js"></script>
-    <script src="record/record.js"></script>
     <!-- <script src="console.override.js"></script> -->
   </body>
 </html>
