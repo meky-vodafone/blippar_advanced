@@ -128,7 +128,7 @@ function getQueryParam(param) {
 function setModelPathBasedOnLevel() {
   const levelFromQueryParam = getQueryParam("level");
   const modelName = AR_GAME_LEVELS_MAP[levelFromQueryParam]?.modelName;
-  debugger;
+  // debugger;
 
   if (!modelName) return;
   const modelPath = `assets/models/${modelName}`;
