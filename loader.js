@@ -2,10 +2,10 @@
  * ============================================
  * WEBARSDK CAMERA & PERMISSION HANDLER
  * ============================================
- * 
+ *
  * Handles camera stream setup and device permissions for the WebAR SDK
  * This module manages the complex permission flow required for mobile AR
- * 
+ *
  * WORKFLOW:
  * 1. Wait for A-Frame scene to load
  * 2. Request camera permissions (iOS requires user interaction)
@@ -13,7 +13,7 @@
  * 4. Request motion sensor permissions (iOS only)
  * 5. Initialize WebAR SDK with camera stream
  * 6. Hide loading screen when video starts
- * 
+ *
  * @author Blippar Development Team
  * @version 2.0.0
  */
@@ -27,19 +27,21 @@ console.log("📹 Loading WebAR camera & permission handler...");
 const CAMERA_CONFIG = {
   // Camera constraints for optimal AR performance
   VIDEO_CONSTRAINTS: {
-    facingMode: "environment",     // Use rear camera
-    advanced: [{
-      focusMode: "manual",
-      focusDistance: 0
-    }]
+    facingMode: "environment", // Use rear camera
+    advanced: [
+      {
+        focusMode: "manual",
+        focusDistance: 0,
+      },
+    ],
   },
 
   // Timing settings
   TIMING: {
-    GYRO_CHECK_DELAY: 500,        // ms to wait before checking gyro
-    SDK_RETRY_INTERVAL: 250,      // ms between SDK initialization retries
-    VIDEO_TRANSITION_DELAY: 800   // ms before hiding loading screen
-  }
+    GYRO_CHECK_DELAY: 500, // ms to wait before checking gyro
+    SDK_RETRY_INTERVAL: 250, // ms between SDK initialization retries
+    VIDEO_TRANSITION_DELAY: 800, // ms before hiding loading screen
+  },
 };
 
 // ============================================
@@ -81,7 +83,9 @@ function initialize() {
     aframeScene.addEventListener("loaded", onSceneLoaded);
     console.log("📱 Waiting for A-Frame scene to load...");
   } else {
-    console.warn("⚠️ A-Frame scene element not found, starting camera immediately");
+    console.warn(
+      "⚠️ A-Frame scene element not found, starting camera immediately"
+    );
     onSceneLoaded();
   }
 }
@@ -121,9 +125,12 @@ function showCameraPermissionDialog() {
     cameraPermissionDialog.classList.add("showflex");
 
     // Add click handler for permission button
-    const permissionButton = cameraPermissionDialog.querySelector(".permsbutton");
+    const permissionButton =
+      cameraPermissionDialog.querySelector(".permsbutton");
     if (permissionButton) {
-      permissionButton.addEventListener("click", onCameraPermissionGranted, { once: true });
+      permissionButton.addEventListener("click", onCameraPermissionGranted, {
+        once: true,
+      });
     }
   }
 }
@@ -161,14 +168,19 @@ async function startCameraStream() {
   try {
     // Get available video input devices
     const devices = await navigator.mediaDevices.enumerateDevices();
-    const videoDevices = devices.filter(device => device.kind === "videoinput");
+    const videoDevices = devices.filter(
+      (device) => device.kind === "videoinput"
+    );
 
     if (videoDevices.length > 0) {
       console.log(`📹 Found ${videoDevices.length} video device(s)`);
 
       // Use the last camera (usually rear camera on mobile)
       const selectedDevice = videoDevices[videoDevices.length - 1];
-      console.log("📱 Selected camera:", selectedDevice.label || "Unknown camera");
+      console.log(
+        "📱 Selected camera:",
+        selectedDevice.label || "Unknown camera"
+      );
 
       // Add device ID to constraints if available
       if (selectedDevice.deviceId) {
@@ -178,7 +190,7 @@ async function startCameraStream() {
 
     // Request camera stream
     const stream = await navigator.mediaDevices.getUserMedia({
-      video: CAMERA_CONFIG.VIDEO_CONSTRAINTS
+      video: CAMERA_CONFIG.VIDEO_CONSTRAINTS,
     });
 
     console.log("✅ Camera stream started successfully");
@@ -190,8 +202,10 @@ async function startCameraStream() {
     }
 
     // Wait a bit then check motion sensor permissions
-    setTimeout(initializeMotionPermissions, CAMERA_CONFIG.TIMING.GYRO_CHECK_DELAY);
-
+    setTimeout(
+      initializeMotionPermissions,
+      CAMERA_CONFIG.TIMING.GYRO_CHECK_DELAY
+    );
   } catch (error) {
     console.error("❌ Failed to start camera:", error);
     handleCameraError(error);
@@ -225,7 +239,9 @@ function handleCameraError(error) {
 function initializeGyroPermissions() {
   if (isIOS) {
     // On iOS, listen for device orientation events
-    window.addEventListener("deviceorientation", onGyroPermissionReceived, { once: true });
+    window.addEventListener("deviceorientation", onGyroPermissionReceived, {
+      once: true,
+    });
   } else {
     // On other platforms, listen for device motion events
     window.addEventListener("devicemotion", onMotionReceived);
@@ -266,7 +282,9 @@ function showMotionPermissionDialog() {
     // Add click handler for permission button
     const permissionButton = gyroPermissionDialog.querySelector(".permsbutton");
     if (permissionButton) {
-      permissionButton.addEventListener("click", onMotionPermissionRequested, { once: true });
+      permissionButton.addEventListener("click", onMotionPermissionRequested, {
+        once: true,
+      });
     }
   }
 }
@@ -325,7 +343,11 @@ function onGyroPermissionReceived() {
  * Handle device motion received (non-iOS)
  */
 function onMotionReceived(event) {
-  if (event.rotationRate?.alpha || event.rotationRate?.beta || event.rotationRate?.gamma) {
+  if (
+    event.rotationRate?.alpha ||
+    event.rotationRate?.beta ||
+    event.rotationRate?.gamma
+  ) {
     console.log("🧭 Motion sensor data received");
     hasGyroPermission = true;
     window.removeEventListener("devicemotion", onMotionReceived);
@@ -415,8 +437,6 @@ WEBARSDK.SetVideoStartedCallback(() => {
     stopFallbackProgress();
   }
 
-
-
   // Hide loading screen with smooth transition
   setTimeout(() => {
     hideLoadingScreenWithTransition();
@@ -424,7 +444,6 @@ WEBARSDK.SetVideoStartedCallback(() => {
     emitGameStartedEvent();
   }, CAMERA_CONFIG.TIMING.VIDEO_TRANSITION_DELAY);
 });
-
 
 // Called when the 3D model is placed
 WEBARSDK.SetARModelPlaceCallback(() => {
@@ -437,15 +456,10 @@ WEBARSDK.SetARModelPlaceCallback(() => {
   // document.getElementById('my-model').emit('start-animation');
 });
 
-
 function emitGameStartedEvent() {
-  var event = new CustomEvent('gameStarted', { bubbles: true });
+  var event = new CustomEvent("gameStarted", { bubbles: true });
   document.dispatchEvent(event);
 }
-
-
-
-
 
 // ============================================
 // UI TRANSITION HANDLERS
@@ -521,3 +535,7 @@ function removeOriginalVideoElement() {
 initialize();
 
 console.log("✅ WebAR camera & permission handler loaded");
+
+//Auto Scale is enabled by default. To disable the auto scale, pass boolean 'false' in the argument and call this function after Init().
+https://docs.blippar.com/webar-sdk/api/api-ref-1.5.3/functions?utm_source=chatgpt.com#h_01gjhvg4fx56p72258ntwxjy8q:~:text=Auto%20Scale%20is%20enabled%20by%20default.%20To%20disable%20the%20auto%20scale%2C%20pass%20boolean%20%27false%27%20in%20the%20argument%20and%20call%20this%20function%20after%20Init().
+WEBARSDK.SetAutoScale(false);
