@@ -35,26 +35,37 @@
     <!-- ============================================ -->
 
     <!-- A-Frame WebVR/WebXR Framework -->
-    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aframe-extras@7.4.0/dist/aframe-extras.min.js"></script>
+    <script src="./assets/libs/aframe.min.js"></script>
+    <script src="./assets/libs/aframe-extras.min.js"></script>
 
     <!-- Custom Styling -->
-    <link rel="stylesheet" type="text/css" href="styles.css" media="all" />
     <link
       rel="stylesheet"
       type="text/css"
-      href="game-header/styles.css"
+      href="./assets/css/styles.css"
       media="all"
     />
     <link
       rel="stylesheet"
       type="text/css"
-      href="game-completed/styles.css"
+      href="./assets/css/game-header.css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./assets/css/game-complete.css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./assets/css/error-handler.css"
       media="all"
     />
 
     <!-- Custom Progress & Error Handlers (MUST load before SDK) -->
-    <script src="custom-handlers.js"></script>
+    <script src="./assets/js/custom-handlers.js"></script>
 
     <!-- ============================================ -->
     <!-- WEBARSDK CONFIGURATION                      -->
@@ -62,7 +73,7 @@
 
     <!-- DIRECT SDK USAGE (replace with your SDK path) -->
     <script
-      src="./assets/blippar-webar-sdk/webar-sdk/webar-sdk-v2.0.8.min.js"
+      src="./assets/libs/blippar-webar-sdk/webar-sdk/webar-sdk-v2.0.8.min.js"
       on-load=""
       on-progress="customProgressCallback"
       on-error="customErrorCallback"
@@ -169,7 +180,7 @@
             >
             </a-box>
 
-    <!--
+            <!--
             <a-plane
               id="debugFloor"
               color="#888"
@@ -180,7 +191,7 @@
               shadow="receive: true"
             ></a-plane>
 -->
-   
+
             <a-entity
               class="clickable"
               gltf-model="#yougo_model"
@@ -223,6 +234,9 @@
     <div id="loadingscreen" class="fullscreenflexcol showflex">
       <div>Loading...</div>
     </div>
+    <!-- ============================================ -->
+    <!-- CAMERA & PERMISSION HANDLER                -->
+    <!-- ============================================ -->
 
     <!-- Camera Permission Dialog -->
     <div id="camperms" class="permholder hide">
@@ -239,10 +253,18 @@
       </div>
       <div id="gyrobutton" class="permsbutton">Grant Access</div>
     </div>
-
     <!-- ============================================ -->
-    <!-- CAMERA & PERMISSION HANDLER                -->
+    <!-- Error Popup -->
     <!-- ============================================ -->
+    <div id="errorPopup" class="error-popup hide">
+      <div class="error-popup-content">
+        <div class="error-popup-icon">⚠️</div>
+        <div id="errorPopupMessage" class="error-popup-message">
+          Something went wrong
+        </div>
+        <button id="errorPopupButton" class="error-popup-button">OK</button>
+      </div>
+    </div>
 
     <!-- <div id="logContainer"></div> -->
 
@@ -259,15 +281,15 @@
         Continue
       </a>
     </div> -->
-    <script src="reset-btn-workaround.js"></script>
-    <script src="game-header/gameHeaderScript.js"></script>
-    <script src="loader.js"></script>
-    <script src="./game-completed/gameComplete.js"></script>
-    <script src="onModelClick.js"></script>
-    <script src="game-exp.js"></script>
-    <script src="levels/levels.js"></script>
+    <script src="./assets/js/error-handler.js"></script>
+    <script src="./assets/js/reset-btn-workaround.js"></script>
+    <script src="./assets/js/gameHeaderScript.js"></script>
+    <script src="./assets/js/loader.js"></script>
+    <script src="./assets/js/gameComplete.js"></script>
+    <script src="./assets/js/onModelClick.js"></script>
+    <script src="./assets/js/game-exp.js"></script>
+    <script src="./assets/js/levels.js"></script>
     <!-- <script src="aframe/look-at-camera.js"></script> -->
     <!-- <script src="console.override.js"></script> -->
   </body>
 </html>
-

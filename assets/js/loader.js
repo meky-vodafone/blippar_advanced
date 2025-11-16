@@ -222,9 +222,26 @@ function handleCameraError(error) {
   // For now, we"ll just log the error
   if (error.name === "NotAllowedError") {
     console.error("Camera permission denied");
+
+    // Detect platform (optional)
+    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const message = isIOS
+      ? "Camera access denied.<br>Please enable camera permission for <b>Ana Vodafone</b> from iOS Settings → Privacy → Camera, then reopen the app."
+      : "Camera access denied.<br>Please enable camera permission for <b>Ana Vodafone</b> from Android Settings → Apps → Ana Vodafone → Permissions → Camera, then reopen the app.";
+    showErrorPopup(message, "Ok", () => location.reload());
   } else if (error.name === "NotFoundError") {
     console.error("No camera found");
+    showErrorPopup(
+      "No camera detected.<br> Please Make sure camera is working well.",
+      "Retry",
+      () => location.reload()
+    );
   } else if (error.name === "NotReadableError") {
+    showErrorPopup(
+      "Camera is in use by another application.<br> Please close other applications and reload.",
+      "Retry",
+      () => location.reload()
+    );
     console.error("Camera is in use by another application");
   }
 }
@@ -405,6 +422,9 @@ function setCameraStreamOnSDK() {
     WEBARSDK.SetCameraStream(cameraStream);
     console.log("✅ Camera stream successfully set on SDK");
   } catch (error) {
+    showErrorPopup("Something went wrong.<br> Please try again.", "Retry", () =>
+      location.reload()
+    );
     console.error("❌ Failed to set camera stream on SDK:", error);
   }
 }
@@ -537,5 +557,6 @@ initialize();
 console.log("✅ WebAR camera & permission handler loaded");
 
 //Auto Scale is enabled by default. To disable the auto scale, pass boolean 'false' in the argument and call this function after Init().
-https://docs.blippar.com/webar-sdk/api/api-ref-1.5.3/functions?utm_source=chatgpt.com#h_01gjhvg4fx56p72258ntwxjy8q:~:text=Auto%20Scale%20is%20enabled%20by%20default.%20To%20disable%20the%20auto%20scale%2C%20pass%20boolean%20%27false%27%20in%20the%20argument%20and%20call%20this%20function%20after%20Init().
+//docs.blippar.com/webar-sdk/api/api-ref-1.5.3/functions?utm_source=chatgpt.com#h_01gjhvg4fx56p72258ntwxjy8q:~:text=Auto%20Scale%20is%20enabled%20by%20default.%20To%20disable%20the%20auto%20scale%2C%20pass%20boolean%20%27false%27%20in%20the%20argument%20and%20call%20this%20function%20after%20Init().
+// https:
 WEBARSDK.SetAutoScale(false);
