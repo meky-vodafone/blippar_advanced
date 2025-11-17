@@ -461,7 +461,7 @@ WEBARSDK.SetVideoStartedCallback(() => {
   setTimeout(() => {
     hideLoadingScreenWithTransition();
     removeOriginalVideoElement();
-    WEBARSDK.StartTracking(true);
+    // WEBARSDK.StartTracking(true);
     emitGameStartedEvent();
   }, CAMERA_CONFIG.TIMING.VIDEO_TRANSITION_DELAY);
 });
