@@ -8,7 +8,7 @@ model.addEventListener("model-loaded", () => {
     console.log("Model loaded and ready for interaction.");
     document.addEventListener('gameStarted', () => {
         showModelHandler();
-        resetModelPositionAfterRandomSeconds();
+        // resetModelPositionAfterRandomSeconds();
     });
 })
 
