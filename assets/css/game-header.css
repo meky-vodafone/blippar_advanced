@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "TheBombSound";
+  src: url("/assets/fonts/TheBombSound.woff") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .game-header {
   position: fixed;
   left: 50%;
@@ -27,6 +34,11 @@
   align-items: end;
   justify-content: space-between;
   width: calc(100% - 40px);
+  h5 {
+    letter-spacing: 1.3px;
+    font-family: "TheBombSound";
+    font-size: 1.1rem;
+  }
 }
 
 .game-header .top-section .timer-container {
@@ -46,7 +58,13 @@
 .game-header .bottom-section .my-progress-bar .my-progress {
   width: 0%;
   height: 100%;
-  background: repeating-linear-gradient(135deg, red, red 10px, white 9px, white 14px);
+  background: repeating-linear-gradient(
+    135deg,
+    red,
+    red 10px,
+    white 9px,
+    white 14px
+  );
   background-size: 40px 40px;
   animation: moveStripes 3s linear infinite 1s;
   transition: all 0.5s linear;
@@ -90,4 +108,3 @@
     transform: translate(-50%, 0) scaleY(1);
   }
 }
-
