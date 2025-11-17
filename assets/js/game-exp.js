@@ -21,6 +21,8 @@ function showModelHandler() {
     setTimeout(() => {
         if (model) {
             // alert("Showing Model Now");
+            const randomPosition = getRandomPositionForModel() || '3 0 -2';
+            model.setAttribute('position', randomPosition)
             model.setAttribute("visible", true);
         }
     }, randomSeconds * 1000);
@@ -34,4 +36,16 @@ function resetModelPositionAfterRandomSeconds() {
         // alert("resetting model position now");
         resetModelPosition();
     }, randomSeconds * 1000)
+}
+
+
+
+function getRandomPositionForModel() {
+  const randomXcoordinate = getRandomValue(-4, 4);
+  return `${randomXcoordinate} 0 -2`;
+}
+
+
+function getRandomValue(min, max) {
+  return +(Math.random() * (max - min) + min).toFixed(2);
 }
