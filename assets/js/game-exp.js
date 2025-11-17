@@ -4,8 +4,10 @@
 
 // Model Loaded Listener
 const model = document.querySelector("#armodel");
+
 model.addEventListener("model-loaded", () => {
     console.log("Model loaded and ready for interaction.");
+    placeModelInRandomPosition();
     document.addEventListener('gameStarted', () => {
         showModelHandler();
         // resetModelPositionAfterRandomSeconds();
@@ -14,15 +16,13 @@ model.addEventListener("model-loaded", () => {
 
 
 function showModelHandler() {
-    const minSeconds = 3;
-    const maxSeconds = 10;
+    const minSeconds = 0;
+    const maxSeconds = 1;
     const randomSeconds = Math.floor(Math.random() * (maxSeconds - minSeconds + 1)) + minSeconds;
-    const model = document.querySelector("#armodel");
     setTimeout(() => {
         if (model) {
             // alert("Showing Model Now");
-            const randomPosition = getRandomPositionForModel() || '3 0 -2';
-            model.setAttribute('position', randomPosition)
+
             model.setAttribute("visible", true);
         }
     }, randomSeconds * 1000);
@@ -41,11 +41,19 @@ function resetModelPositionAfterRandomSeconds() {
 
 
 function getRandomPositionForModel() {
-  const randomXcoordinate = getRandomValue(-4, 4);
-  return `${randomXcoordinate} 0 -2`;
+    const randomXcoordinate = getRandomValue(-4, 4);
+    return `${randomXcoordinate} 0 -2`;
 }
 
 
 function getRandomValue(min, max) {
-  return +(Math.random() * (max - min) + min).toFixed(2);
+    return +(Math.random() * (max - min) + min).toFixed(2);
+}
+
+
+function placeModelInRandomPosition(){
+    if (model) {
+        const randomPosition = getRandomPositionForModel() || '3 0 -2';
+        model.setAttribute('position', randomPosition)
+    }
 }
