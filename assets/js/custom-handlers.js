@@ -359,7 +359,7 @@ function startFallbackProgress() {
         // Update UI with simulated progress
         updateProgressUI({
             percentage: currentFallbackProgress,
-            mainText: `Loading: ${Math.round(currentFallbackProgress)}%`,
+            mainText: `Loading: ${Math.round(currentFallbackProgress)||100}%`,
             detailText: getFallbackDetailText(currentFallbackProgress),
             debugText: getLoadingStageText(currentFallbackProgress),
             rawData: { simulated: true, percentage: currentFallbackProgress }
