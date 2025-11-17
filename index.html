@@ -154,7 +154,7 @@
         cursor="fuse: false; rayOrigin: mouse"
       >
         <!-- AR Camera -->
-        <a-camera webar-camera></a-camera>
+        <a-camera id="camera" webar-camera></a-camera>
         <!-- <a-camera webar-camera look-controls="enabled: true" cursor="rayOrigin: mouse"></a-camera> -->
 
         <!-- ============================================ -->
@@ -204,6 +204,7 @@
               draco-loader="decoderPath: https://www.gstatic.com/draco/v1/decoders/"
               webar-loadmonitor="elType: glb"
               visible="true"
+              look-at="#camera"
             >
             </a-entity>
           </a-entity>
@@ -289,6 +290,7 @@
     <script src="./assets/js/onModelClick.js"></script>
     <script src="./assets/js/game-exp.js"></script>
     <script src="./assets/js/levels.js"></script>
+    <script src="./assets/js/look-at-camera.js"></script>
     <!-- <script src="aframe/look-at-camera.js"></script> -->
     <!-- <script src="console.override.js"></script> -->
   </body>
