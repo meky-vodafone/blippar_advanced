@@ -74,3 +74,17 @@ document.addEventListener('gameStarted', () => {
   // alert('Start Timer after Event Received');
   startTimer();
 });
+
+
+
+
+function setHeaderLang() {
+  const lang = new URLSearchParams(window.location.search).get("lang") || "en";
+  if (lang === "en") return;
+  const headerTitle = document.getElementById("header-title");
+  const textAr = "الوقت المتبقي";
+  headerTitle.innerText = textAr;
+  document.body.classList.add("rtl");
+}
+
+setHeaderLang();
