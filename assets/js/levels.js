@@ -1,3 +1,4 @@
+let currentLevelEncrypted=null;
 const AR_GAME_LEVELS_MAP = {
   le4Z8R8Gw2ek: {
     levelNo: 1,
@@ -127,6 +128,7 @@ function getQueryParam(param) {
 
 function setModelPathBasedOnLevel() {
   const levelFromQueryParam = getQueryParam("level");
+  currentLevelEncrypted=levelFromQueryParam;
   const modelName = AR_GAME_LEVELS_MAP[levelFromQueryParam]?.modelName;
   // debugger;
 

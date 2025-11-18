@@ -10,7 +10,7 @@ function onGameComplete(caughtCharacter, timeTakenInSeconds) {
   // Build URL safely
   const finalUrl = `${domain}/portal/${flowSegment}youtubePromo/game-page` +
                    `?caughtCharacter=${caughtCharacter}` +
-                   `&timeTakenInSeconds=${timeTakenInSeconds}`;
+                   `&timeTakenInSeconds=${timeTakenInSeconds}&yogoId=${currentLevelEncrypted}`;
 
   // Redirect
   try {
