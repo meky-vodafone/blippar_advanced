@@ -5,6 +5,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "VF-Regular";
+  src: url("/assets/fonts/vf-regular.woff") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .game-header {
   position: fixed;
   left: 50%;
@@ -17,7 +24,6 @@
   padding: 12px;
   width: 90%;
   line-height: 1;
-  direction: ltr;
   text-align: start;
 
   display: flex;
@@ -36,7 +42,6 @@
   width: calc(100% - 40px);
 }
 
-
 body.rtl h5 {
   font-family: "VF-Regular";
 }
@@ -49,7 +54,6 @@ h5 {
   letter-spacing: 1.3px;
   font-size: 1.1rem;
 }
-
 .game-header .top-section .timer-container {
   display: flex;
   gap: 4px;
@@ -81,7 +85,6 @@ h5 {
 
 .game-header .icon-container {
   position: absolute;
-  right: -1px;
   top: 0;
   height: 100%;
   overflow: hidden;
