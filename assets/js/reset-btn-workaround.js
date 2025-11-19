@@ -1,13 +1,14 @@
 function resetModelPosition() {
-  const resetButton = document.getElementById("resetButton");
-  if (!resetButton) {
-    console.warn("Reset button not found in the DOM.");
-    return;
-  }
-  resetButton.click();
+  // const resetButton = document.getElementById("resetButton");
+  // if (!resetButton) {
+  //   console.warn("Reset button not found in the DOM.");
+  //   return;
+  // }
+  // resetButton.click();
 
   // Another Method
-  // WEBARSDK.PerformReset();
+  WEBARSDK.PerformReset();
+  console.log("Model position has been reset.");
 
   // alert("Model position has been reset.");
   // resetButton.style.visibility = 'hidden';
