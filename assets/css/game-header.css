@@ -1,17 +1,16 @@
 @font-face {
   font-family: "TheBombSound";
-  src: url("/assets/fonts/TheBombSound.woff") format("truetype");
+  src: url("../fonts/TheBombSound.woff") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "VF-Regular";
-  src: url("/assets/fonts/vf-regular.woff") format("truetype");
+  src: url("../fonts/vf-regular.woff") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
-
 .game-header {
   position: fixed;
   left: 50%;
@@ -51,7 +50,7 @@ body h5 {
 }
 
 h5 {
-  letter-spacing: 1.3px;
+  
   font-size: 1.1rem;
 }
 .game-header .top-section .timer-container {
