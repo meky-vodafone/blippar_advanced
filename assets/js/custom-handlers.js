@@ -351,7 +351,7 @@ function startFallbackProgress() {
             console.log('✅ Fallback progress completed - waiting for video callback');
             
             // Start backup timer to hide loading screen if video callback doesn't fire
-            startLoadingScreenBackupTimer();
+            // startLoadingScreenBackupTimer();
         }
         
         currentFallbackProgress = Math.min(currentFallbackProgress + increment, 100);
