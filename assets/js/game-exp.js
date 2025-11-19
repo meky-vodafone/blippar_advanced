@@ -57,3 +57,23 @@ function placeModelInRandomPosition(){
         model.setAttribute('position', randomPosition)
     }
 }
+
+function getWeightedRandomX() {
+  const weightedValues = [
+    { value: 0, weight: 0.05 },
+    { value: 1, weight: 0.025 },
+    { value: -1, weight: 0.025 },
+    { value: 2, weight: 0.225 },
+    { value: -2, weight: 0.225 },
+    { value: 3, weight: 0.225 },
+    { value: -3, weight: 0.225 },
+  ];
+
+  let random = Math.random();
+  let sum = 0;
+
+  for (const item of weightedValues) {
+    sum += item.weight;
+    if (random <= sum) return item.value;
+  }
+}
