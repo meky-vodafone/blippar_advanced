@@ -35,7 +35,7 @@
   justify-content: space-between;
   width: calc(100% - 40px);
   h5 {
-    letter-spacing: 1.3px;
+    /* letter-spacing: 1.3px; */
     font-family: "TheBombSound";
     font-size: 1.1rem;
   }
