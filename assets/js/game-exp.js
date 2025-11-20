@@ -54,7 +54,7 @@ function getRandomValue(min, max) {
 function placeModelInRandomPosition() {
   if (model) {
     const randomPosition = getRandomPositionForModel() || "3 0 -2";
-    model.setAttribute("position", randomPosition);
+    model.setAttribute("position", `0 0 0`);
   }
 }
 
