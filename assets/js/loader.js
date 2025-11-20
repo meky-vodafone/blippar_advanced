@@ -385,17 +385,17 @@ function onMotionReceived(event) {
   console.log("TRYING TO REACH SENSOR DATA");
 
   // Start a new timeout to handle motion sensor availability
-  motionSensorTimeoutId = setTimeout(() => {
-    window.removeEventListener("devicemotion", onMotionReceived);
-    console.warn("⏳ Motion sensor TIMEOUT, NO SENSORS FOUND");
-    showErrorPopup(
-      localization.motionSensors.motionSensorsNotAvailable,
-      localization.errorButtons.back,
-      () => {
-        window.history.back();
-      }
-    );
-  }, motionSensorTimeoutInSeconds * 1000);
+  // motionSensorTimeoutId = setTimeout(() => {
+  //   window.removeEventListener("devicemotion", onMotionReceived);
+  //   console.warn("⏳ Motion sensor TIMEOUT, NO SENSORS FOUND");
+  //   showErrorPopup(
+  //     localization.motionSensors.motionSensorsNotAvailable,
+  //     localization.errorButtons.back,
+  //     () => {
+  //       window.history.back();
+  //     }
+  //   );
+  // }, motionSensorTimeoutInSeconds * 1000);
 
   if (
     event.rotationRate?.alpha ||
@@ -405,7 +405,7 @@ function onMotionReceived(event) {
     console.log("🧭 Motion sensor data received");
     hasGyroPermission = true;
     window.removeEventListener("devicemotion", onMotionReceived);
-    clearTimeout(motionSensorTimeoutId);
+    // clearTimeout(motionSensorTimeoutId);
     // If camera is ready, initialize SDK
     if (cameraStream) {
       initializeSDK();
