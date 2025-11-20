@@ -51,7 +51,9 @@ const CAMERA_CONFIG = {
 let cameraStream = null;
 let isSDKReady = false;
 let hasGyroPermission = false;
-let isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+let isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+console.log("IOS DETECTED?", isIOS);
+
 
 // DOM elements (cached for performance)
 let videoElement;
@@ -224,7 +226,6 @@ function handleCameraError(error) {
     console.error("Camera permission denied");
 
     // Detect platform (optional)
-    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
     const message = isIOS
       ? "Camera access denied.<br>Please enable camera permission for <b>Ana Vodafone</b> from iOS Settings , Privacy , Camera, then reopen the app."
       : "Camera access denied.<br>Please enable camera permission for <b>Ana Vodafone</b> from Android Settings , Apps , Ana Vodafone , Permissions , Camera, then reopen the app.";
@@ -323,22 +324,17 @@ async function onMotionPermissionRequested() {
       console.warn("⚠️ Motion permission denied");
       hideMotionPermissionDialog();
       // Continue without motion sensors
-      // initializeSDK();
-      showErrorPopup(
-        "Please allow motion access to continue.",
-        "Retry",
-        () => location.reload()
-      );
+      showErrorPopup("Continue Without Motion Sensor?", "OK", () => {
+        initializeSDK();
+      });
     }
   } catch (error) {
     console.error("❌ Failed to request motion permission:", error);
     hideMotionPermissionDialog();
     // initializeSDK();
-    showErrorPopup(
-      "Failed to request motion permission: " + JSON.stringify(error),
-      "Retry",
-      () => location.reload()
-    );
+    showErrorPopup("Continue Without Motion Sensor?", "OK", () => {
+      initializeSDK();
+    });
   }
 }
 
