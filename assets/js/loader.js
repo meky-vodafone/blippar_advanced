@@ -606,5 +606,5 @@ console.log("✅ WebAR camera & permission handler loaded");
 
 //Auto Scale is enabled by default. To disable the auto scale, pass boolean 'false' in the argument and call this function after Init().
 //docs.blippar.com/webar-sdk/api/api-ref-1.5.3/functions?utm_source=chatgpt.com#h_01gjhvg4fx56p72258ntwxjy8q:~:text=Auto%20Scale%20is%20enabled%20by%20default.%20To%20disable%20the%20auto%20scale%2C%20pass%20boolean%20%27false%27%20in%20the%20argument%20and%20call%20this%20function%20after%20Init().
-// https:
-WEBARSDK.SetAutoScale(false);
+// // https:
+// WEBARSDK.SetAutoScale(false);
