@@ -21,8 +21,8 @@ function resetModelPosition() {
 // if (isIOSDevice) {
 // ! Reset For Both Android & IOS
 document.addEventListener("gameStarted", () => {
-  setTimeout(() => {
-    resetModelPosition();
-  }, 1000);
+  // setTimeout(() => {
+  //   // resetModelPosition();
+  // }, 1000);
 });
 // }
