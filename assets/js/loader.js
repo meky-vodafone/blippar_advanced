@@ -52,8 +52,9 @@ let cameraStream = null;
 let isSDKReady = false;
 let hasGyroPermission = false;
 let isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-console.log("IOS DETECTED?", isIOS);
+let motionSensorStatus = "unknown"; // "unknown" | "granted" | "denied"
 
+console.log("IOS DETECTED?", isIOS);
 
 // DOM elements (cached for performance)
 let videoElement;
@@ -285,6 +286,7 @@ function initializeMotionPermissions() {
     } else {
       console.log("⏳ Waiting for motion sensor data...");
       // Will be handled by event listeners set up in initializeGyroPermissions()
+      alert("No motion sensor data available");
     }
   }
 }
